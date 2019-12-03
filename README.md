@@ -35,6 +35,9 @@
  400   | 4FF   | 256B     | BIOS Data Area（BIOS 数据区） 
  000   | 3FF   | 1KB      | Interrupt Vector Table（中断向量表） 
  
- ## BIOS是如何启动的
- 
- > 计算机加电之后CPU的CS:IP被强制初始化为0xF000:0xFFF0，即0xFFFF0的位置，这个地址就是BIOS的起始地址，0xFFFF0的地址处存在一个跳转指令，jmp far 0xF000:E05B，跳转到了0xFE05B处，这里便是BIOS正真代码的地方，接下来BIOS马不停蹄的开始自检，建立IVT中断向量表。
+## BIOS是如何启动的
+
+> 计算机加电之后CPU的CS:IP被强制初始化为0xF000:0xFFF0，即0xFFFF0的位置，这个地址就是BIOS的起始地址，0xFFFF0的地址处存在一个跳转指令，jmp far 0xF000:E05B，跳转到了0xFE05B处，这里便是BIOS正真代码的地方，接下来BIOS马不停蹄的开始自检，建立IVT中断向量表。
+
+## 0x7C00
+在完成BIOS自检之后，BIOS还要做最后一件最重要的事情，就是检查最后0磁头0磁道1扇区的最后两个字节是不是0x55,0xAA,如果是就jmp 0x0000:0x7C00的地方，至于为什么是0x7C00，请自行查阅这篇文章[Why BIOS loads MBR into 0x7C00 in x86](https://www.glamenv-septzen.net/en/view/6)
