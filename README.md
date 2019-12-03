@@ -37,4 +37,4 @@
  
  ## BIOS是如何启动的
  
- > 计算机加电之后CPU的CS:IP被强制初始化为0xF000:0xFFF0，即0xFFFF0的位置，这个地址就是BIOS的起始地址，0xFFFF0的地址处存在一个跳转指令，jmp far 0xF000:E05B，跳转到了0xFE05B处，这里便是BIOS正真代码的地方。
+ > 计算机加电之后CPU的CS:IP被强制初始化为0xF000:0xFFF0，即0xFFFF0的位置，这个地址就是BIOS的起始地址，0xFFFF0的地址处存在一个跳转指令，jmp far 0xF000:E05B，跳转到了0xFE05B处，这里便是BIOS正真代码的地方，接下来BIOS马不停蹄的开始自检，建立IVT中断向量表。
