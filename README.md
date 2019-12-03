@@ -34,3 +34,8 @@
  500   | 7BFF  | 30464B 约 30KB | 可用区域 
  400   | 4FF   | 256B     | BIOS Data Area（BIOS 数据区） 
  000   | 3FF   | 1KB      | Interrupt Vector Table（中断向量表） 
+ 
+ ## BIOS是如何启动的
+ 
+ > 计算机加电之后CPU的CS:IP被强制初始化为0xF000:0xFFF0，即0xFFFF0的位置，这个地址就是BIOS的起始地址
+ 
